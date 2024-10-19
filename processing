@@ -24,8 +24,6 @@ void draw() {
   background(0, 100);
   dobleX += velo * 1;
 
-  if (x > 0) {
-
     //Step 4. Play movie
     movie.play();
 
@@ -55,7 +53,6 @@ void draw() {
     }
 
     //save frames
-    saveFrame("frames5/filename-##.png");
+    saveFrame("frames/filename-##.png");
     println("save frames in data");
   }
-}
