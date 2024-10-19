@@ -1,0 +1,25 @@
+from os import listdir, makedirs
+from os.path import isfile, join
+import random
+import shutil
+
+
+
+input_folder = '/home/your/dir/'
+
+
+output_folder = 'output_folder'
+
+makedirs(output_folder, exist_ok=True)
+
+
+files = [f for f in listdir(input_folder) if isfile(join(input_folder, f))]
+
+
+random.shuffle(files)
+
+
+for i, file in enumerate(files):
+ shutil.copyfile(join(input_folder, file), f'{output_folder}/image_{i}.png')
+
+print('Randomly copied images to output folder')

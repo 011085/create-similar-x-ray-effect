@@ -1,0 +1,7 @@
+
+In the terminal you must move to the folder where the 
+images are and run this command.
+
+This command joins the frames, be sure to call the images in the same way.
+
+ffmpeg -r 1/0.1 -i image_%01d.png -c:v libx264 -r 30 -t 60 -pix_fmt yuv420p out.mp4

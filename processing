@@ -1,0 +1,61 @@
+import processing.video.*;
+
+// Step 1. Declare a Movie object.
+Movie movie;
+
+float dobleX = 0;
+float velo = 1;
+
+
+void setup() {
+  size(1920, 1080);
+  // Step 2. Initialize Movie object. The file "yourMovie.mov" should live in the data folder.
+  movie = new Movie(this, "yourMovie.mov");
+}
+
+// Step 3. Read new frames from the movie.
+void movieEvent(Movie movie) {
+  movie.read();
+}
+
+
+void draw() {
+
+  background(0, 100);
+  dobleX += velo * 1;
+
+  if (x > 0) {
+
+    //Step 4. Play movie
+    movie.play();
+
+    for (int i = 0; i<width + 25; i+= 25) {
+      image(movie, 0, height - i, 1920, 1080);
+    }
+
+    tint(15, 20, 85 * dobleX, 50);
+    filter(BLUR);
+
+    //Effect noisy
+    for (int i = 0; i<width + 5; i+= 5) {
+      for (int j = 0; j<height + 5; j+= 5) {
+
+        point(i, height - j);
+        stroke(random(255), random(255), random(255), 50);
+        strokeWeight(random(0, 5));
+      }
+    } 
+
+    //Conditional variant colour
+
+    if (dobleX > 60) {
+      velo = velo *-1;
+    } else if (dobleX < 0) {
+      velo = velo * -1;
+    }
+
+    //save frames
+    saveFrame("frames5/filename-##.png");
+    println("save frames in data");
+  }
+}

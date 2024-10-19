@@ -1,0 +1,14 @@
+
+I will describe the workflow.
+
+# Open processing and use the code with a video in the data folder.
+The frames are saved in the frame folder.
+(create frames)
+
+# Open python and use the code make sure to select the path where the frames saved by processing are located.
+(mixing frames randomly)
+
+# Open terminal and use the ffmpeg command make sure to select the path where the frames saved by python are located.
+(join frames)
+
+The new video is located in the output folder of python
